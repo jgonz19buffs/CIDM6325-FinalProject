@@ -3,6 +3,11 @@ from . import views
 
 urlpatterns = [
     path(
+        'content/order/',
+        views.ContentOrderView.as_view(),
+        name='content_order'
+    ),
+    path(
         'content/<int:id>/delete/',
         views.ContentDeleteView.as_view(),
         name='module_content_delete'
@@ -16,6 +21,11 @@ urlpatterns = [
         'mine/',
         views.ManageCourseListView.as_view(),
         name='manage_course_list'
+    ),
+    path(
+        'module/order/',
+        views.ModuleOrderView.as_view(),
+        name='module_order'
     ),
     path(
         'module/<int:module_id>/content/<model_name>/create/',
