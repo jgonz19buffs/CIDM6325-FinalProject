@@ -1,5 +1,6 @@
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.apps import apps
+from django.core.cache import cache
 from django.db.models import Count
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
@@ -176,9 +177,13 @@ class CourseListView(TemplateResponseMixin, View):
     model = Course
     template_name = 'courses/course/list.html'
     def get(self, request, subject=None):
-        subjects = Subject.objects.annotate(
-            total_courses=Count('courses')
-        )
+        subjects = cache.get('all_subjects')
+        if not subjects:
+            subjects = Subject.objects.annotate(
+                total_courses=Count('courses')
+            )
+            cache.set('all_subjects', subjects)
+        
         courses = Course.objects.annotate(
             total_modules=Count('modules')
         )
