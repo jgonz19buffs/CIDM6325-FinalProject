@@ -12,4 +12,4 @@ def course_chat_room(request, course_id):
     except Course.DoesNotExist:
         # user is not a student of the course or course does not exist
         return HttpResponseForbidden()
-    return render(request, 'chat/room.html', {'course}': course})
+    return render(request, 'chat/room.html', {'course': course})
