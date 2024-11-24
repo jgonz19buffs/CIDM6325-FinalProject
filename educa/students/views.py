@@ -81,7 +81,7 @@ class StudentCourseWorkListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        return qs.filter(owner_id__in=[self.request.user])
+        return qs.filter(owner=self.request.user.id, course_id=self.kwargs['pk'])
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -98,6 +98,7 @@ class StudentCourseWorkDetailView(LoginRequiredMixin, ListView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['course_id'] = self.kwargs['pk']
         # get work object
         work = self.get_object()
         if 'work_id' in self.kwargs:
@@ -159,7 +160,7 @@ class WorkContentCreateUpdateView(TemplateResponseMixin, View):
             obj.save()
             if not id:
                 # new content
-                Content.objects.create(module_id = 0, item=obj)
+                Work.objects.create(course = self.course, item=obj, owner = request.user, title = obj.title)
             return redirect('student_work_list', self.course.id)
         return self.render_to_response(
             {'form': form, 'object': self.obj}

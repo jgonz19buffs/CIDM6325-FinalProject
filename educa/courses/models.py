@@ -133,9 +133,16 @@ class Work(models.Model):
         related_name='works',
         on_delete=models.CASCADE
     )
+    content_type = models.ForeignKey(
+        ContentType,
+        on_delete=models.CASCADE,
+        limit_choices_to={
+            'model__in':('text', 'video', 'image', 'file')
+        }
+    )
+    object_id = models.PositiveIntegerField()
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
-    overview = models.TextField()
+    item = GenericForeignKey('content_type', 'object_id')
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
