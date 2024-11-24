@@ -1,16 +1,20 @@
+from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
+from django.apps import apps
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.query import QuerySet
 from django.forms import BaseModelForm
+from django.forms.models import modelform_factory
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
+from django.views.generic.base import TemplateResponseMixin, View
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.list import ListView
 from .forms import CourseEnrollForm
-from courses.models import Course, Work
+from courses.models import Content, Course, Work
 
 # Create your views here.
 class StudentRegistrationView(CreateView):
@@ -78,6 +82,11 @@ class StudentCourseWorkListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         qs = super().get_queryset()
         return qs.filter(owner_id__in=[self.request.user])
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['course_id'] = self.kwargs['pk']
+        return context
 
 class StudentCourseWorkDetailView(LoginRequiredMixin, ListView):
     model = Work
@@ -100,3 +109,66 @@ class StudentCourseWorkDetailView(LoginRequiredMixin, ListView):
             # get first work
             context['work'] = work.all()[0]
         return context
+
+class WorkContentCreateUpdateView(TemplateResponseMixin, View):
+    work = None
+    model = None
+    obj = None
+    template_name = 'courses/work/form.html'
+
+    def get_model(self, model_name):
+        if model_name in ['text', 'video', 'image', 'file']:
+            return apps.get_model(
+                app_label='courses', model_name=model_name
+            )
+        return None
+
+    def get_form(self, model, *args, **kwargs):
+        Form = modelform_factory(
+            model, exclude=['owner', 'order', 'created', 'updated']
+        )
+        return Form(*args, **kwargs)
+
+    def dispatch(self, request, pk, model_name, id=None):
+        self.course = get_object_or_404(
+            Course, id=pk
+        )
+        self.model = self.get_model(model_name)
+        if id:
+            self.obj = get_object_or_404(
+                self.model, id=id, owner=request.user
+            )
+        return super().dispatch(request, pk, model_name, id)
+
+    def get(self, request, work_id, model_name, id=None):
+        form = self.get_form(self.model, instance=self.obj)
+        return self.render_to_response(
+            {'form': form, 'object': self.obj}
+        )
+
+    def post(self, request, pk, model_name, id=None):
+        form = self.get_form(
+            self.model,
+            instance=self.obj,
+            data=request.POST,
+            files=request.FILES
+        )
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.owner = request.user
+            obj.save()
+            if not id:
+                # new content
+                Content.objects.create(module_id = 0, item=obj)
+            return redirect('student_work_list', self.course.id)
+        return self.render_to_response(
+            {'form': form, 'object': self.obj}
+        )
+    
+class ContentOrderView(CsrfExemptMixin, JsonRequestResponseMixin, View):
+    def post(self, request):
+        for id, order in self.request_json.items():
+            Content.objects.filter(
+                id=id, module__course__owner=request.user
+            ).update(order=order)
+        return self.render_json_response({'saved': 'OK'})
