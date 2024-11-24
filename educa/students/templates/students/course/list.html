@@ -10,6 +10,8 @@
         <h3>{{ course.title }}</h3>
         <p><a href="{% url "student_course_detail" course.id %}">
         Access contents</a></p>
+        <p><a href="{% url "student_work_list" course.id %}">
+          Completed work</a></p>
       </div>
     {% empty %}
       <p>

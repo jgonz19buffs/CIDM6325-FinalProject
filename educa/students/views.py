@@ -10,7 +10,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.list import ListView
 from .forms import CourseEnrollForm
-from courses.models import Course
+from courses.models import Course, Work
 
 # Create your views here.
 class StudentRegistrationView(CreateView):
@@ -69,4 +69,34 @@ class StudentCourseDetailView(LoginRequiredMixin, DetailView):
         else:
             # get first module
             context['module'] = course.modules.all()[0]
+        return context
+
+class StudentCourseWorkListView(LoginRequiredMixin, ListView):
+    model = Work
+    template_name = 'students/course/work/list.html'
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(owner_id__in=[self.request.user])
+
+class StudentCourseWorkDetailView(LoginRequiredMixin, ListView):
+    model = Work
+    template_name = 'students/course/work/detail.html'
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(students__in=[self.request.user])
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # get work object
+        work = self.get_object()
+        if 'work_id' in self.kwargs:
+            # get current work
+            context['work'] = work.get(
+                id=self.kwargs['work_id']
+            )
+        else:
+            # get first work
+            context['work'] = work.all()[0]
         return context

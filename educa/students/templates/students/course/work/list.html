@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}My work{% endblock %}
+
+{% block content %}
+  <h1>My work</h1>
+  <div class="module">
+    {% for work in object_list %}
+      <div class="course-info">
+        <h3>{{ work.title }}</h3>
+        <p><a href="{% url "student_work_detail" course.id %}">
+        Access work</a></p>
+      </div>
+    {% empty %}
+      <p>
+        You have not uploaded any work yet.
+        <a href="{% url "student_course_list" %}">Browse my courses</a>
+        to view a different course.
+      </p>
+    {% endfor %}
+  </div>
+{% endblock %}

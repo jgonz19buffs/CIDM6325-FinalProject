@@ -120,3 +120,26 @@ class Image(ItemBase):
 
 class Video(ItemBase):
     url = models.URLField()
+
+
+class Work(models.Model):
+    owner = models.ForeignKey(
+        User,
+        related_name='work_created',
+        on_delete=models.CASCADE
+    )
+    course = models.ForeignKey(
+        Course,
+        related_name='works',
+        on_delete=models.CASCADE
+    )
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
+    overview = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created']
+
+    def __str__(self):
+        return self.title
