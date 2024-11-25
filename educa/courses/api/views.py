@@ -63,7 +63,13 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 #         return Response({'enrolled': True})
 
 class WorkViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Work.objects.all()
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = WorkWithContentsSerializer
     pagination_class = StandardPagination
+
+    def get_queryset(self):
+        user = self.request.user
+        print(user.id)
+        return Work.objects.filter(owner=self.request.user.id)
 
