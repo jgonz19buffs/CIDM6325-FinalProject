@@ -15,6 +15,8 @@ from django.views.generic.edit import CreateView, FormView
 from django.views.generic.list import ListView
 from .forms import CourseEnrollForm
 from courses.models import Content, Course, Work
+from urllib.parse import urlparse
+import os
 
 # Create your views here.
 class StudentRegistrationView(CreateView):
@@ -157,6 +159,28 @@ class WorkContentCreateUpdateView(TemplateResponseMixin, View):
         if form.is_valid():
             obj = form.save(commit=False)
             obj.owner = request.user
+
+            file = request.FILES.get('file')
+            url = request.POST.get('url')
+            if(file):
+                if(model_name == 'image'):
+                    file_extension = os.path.splitext(file.name)[1].lower()
+                    if file_extension != '.png':
+                        form.add_error('file', 'Invalid file type')
+                        return self.render_to_response({'form':form, 'object':self.obj})
+                
+                if(model_name == 'file'):
+                    file_extension = os.path.splitext(file.name)[1].lower()
+                    if file_extension != '.pdf':
+                        form.add_error('file', 'Invalid file type')
+                        return self.render_to_response({'form':form, 'object':self.obj})
+                
+                if(model_name == 'video'):
+                    file_extension = os.path.splitext(file.name)[1].lower()
+                    if file_extension != '.mp4':
+                        form.add_error('file', 'Invalid file type')
+                        return self.render_to_response({'form':form, 'object':self.obj})
+
             obj.save()
             if not id:
                 # new content

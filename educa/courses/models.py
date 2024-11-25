@@ -120,6 +120,7 @@ class Image(ItemBase):
 
 class Video(ItemBase):
     url = models.URLField()
+    file = models.FileField(upload_to='videos')
 
 
 class Work(models.Model):

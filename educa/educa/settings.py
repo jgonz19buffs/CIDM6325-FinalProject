@@ -167,3 +167,9 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+ALLOWED_FILE_EXTENSIONS = {
+    'video': ['.mp4'],
+    'image': ['.png'],
+    'file': ['.pdf']
+}
