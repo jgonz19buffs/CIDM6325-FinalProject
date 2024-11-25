@@ -162,7 +162,22 @@ class WorkContentCreateUpdateView(TemplateResponseMixin, View):
 
             file = request.FILES.get('file')
             url = request.POST.get('url')
+            content = request.POST.get('content')
+
+            if ((not file and not url) and (not file and not content)):
+                form.add_error('file', 'One needs be specified')
+                return self.render_to_response({'form':form, 'object':self.obj})
+            if ((file and url) or (file and content)):
+                form.add_error('file', 'Only one can specified')
+                return self.render_to_response({'form':form, 'object':self.obj})
+
             if(file):
+                if(model_name == 'text'):
+                    file_extension = os.path.splitext(file.name)[1].lower()
+                    if file_extension != '.txt':
+                        form.add_error('file', 'Invalid file type')
+                        return self.render_to_response({'form':form, 'object':self.obj})
+
                 if(model_name == 'image'):
                     file_extension = os.path.splitext(file.name)[1].lower()
                     if file_extension != '.png':
@@ -174,12 +189,13 @@ class WorkContentCreateUpdateView(TemplateResponseMixin, View):
                     if file_extension != '.pdf':
                         form.add_error('file', 'Invalid file type')
                         return self.render_to_response({'form':form, 'object':self.obj})
-                
+
                 if(model_name == 'video'):
                     file_extension = os.path.splitext(file.name)[1].lower()
                     if file_extension != '.mp4':
                         form.add_error('file', 'Invalid file type')
                         return self.render_to_response({'form':form, 'object':self.obj})
+
 
             obj.save()
             if not id:
