@@ -1,3 +1,4 @@
+from django.db.models.base import Model as Model
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.apps import apps
 from django.contrib.auth import authenticate, login
@@ -90,27 +91,30 @@ class StudentCourseWorkListView(LoginRequiredMixin, ListView):
         context['course_id'] = self.kwargs['pk']
         return context
 
-class StudentCourseWorkDetailView(LoginRequiredMixin, ListView):
+class StudentCourseWorkDetailView(LoginRequiredMixin, DetailView):
     model = Work
     template_name = 'students/course/work/detail.html'
 
     def get_queryset(self):
         qs = super().get_queryset()
-        return qs.filter(students__in=[self.request.user])
+        return qs.filter(owner=self.request.user.id, course_id=self.kwargs['pk'])
+    
+    def get_object(self, queryset=None):
+        work_id = self.kwargs.get('work_id')
+        course_id = self.kwargs.get('pk')
+
+        work = get_object_or_404(
+            Work,
+            id=work_id,
+            course_id=course_id,
+            owner=self.request.user
+        )
+        return work
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['course_id'] = self.kwargs['pk']
-        # get work object
-        work = self.get_object()
-        if 'work_id' in self.kwargs:
-            # get current work
-            context['work'] = work.get(
-                id=self.kwargs['work_id']
-            )
-        else:
-            # get first work
-            context['work'] = work.all()[0]
+        context['work_id'] = self.kwargs['work_id']
         return context
 
 class WorkContentCreateUpdateView(TemplateResponseMixin, View):

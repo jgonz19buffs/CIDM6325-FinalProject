@@ -72,4 +72,14 @@ urlpatterns = [
         views.CourseModuleUpdateView.as_view(),
         name='course_module_update'
     ),
+    path(
+        '<pk>/work/<work_id>/',
+        views.CourseWorkDetailView.as_view(),
+        name='course_work_detail'
+    ),
+    path(
+        '<pk>/work/',
+        views.CourseWorkListView.as_view(),
+        name='course_work_list'
+    ),
 ]

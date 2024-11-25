@@ -3,47 +3,24 @@
 {% block title %}My work{% endblock %}
 
 {% block content %}
-  <h1>My work</h1>
+  <h1>Course work</h1>
   <div class="module">
+    {{ work.title }}
     {% for work in object_list %}
       <div class="course-info">
         <h3> {{ work.title }}</h3>
         <p>Created: {{ work.created }}</p>
-        <p><a href="{% url "student_work_detail" work.course_id work.id %}">
+        <p>Submitted by: {{work.owner}}</p>
+        <p><a href="{% url "course_work_detail" work.course_id work.id %}">
         Access work</a></p>
       </div>
     {% empty %}
       <p>
-        You have not uploaded any work yet.
-        <a href="{% url "student_course_list" %}">Browse my courses</a>
+        No work has been uploaded yet.
+        <a href="{% url "manage_course_list" %}">Browse my courses</a>
         to view a different course.
       </p>
     {% endfor %}
-  </div>
-  </div>
-  <h3>Add new work:</h3>
-  <ul class="content-types">
-    <li>
-      <a href="{% url "work_content_create" course_id "text" %}">
-        Text
-      </a>
-    </li>
-    <li>
-      <a href="{% url "work_content_create" course_id "image" %}">
-        Image
-      </a>
-    </li>
-    <li>
-      <a href="{% url "work_content_create" course_id "video" %}">
-        Video
-      </a>
-    </li>
-    <li>
-      <a href="{% url "work_content_create" course_id "file" %}">
-        File
-      </a>
-    </li>
-  </ul>
   </div>
 
 {% endblock %}

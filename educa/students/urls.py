@@ -22,7 +22,12 @@ urlpatterns = [
         'course/<pk>/work/content/<model_name>/<id>/',
         views.WorkContentCreateUpdateView.as_view(),
         name='work_content_update'
-    ), 
+    ),
+    path(
+        'course/<pk>/work/<work_id>/',
+        (views.StudentCourseWorkDetailView.as_view()),
+        name='student_work_detail'
+    ),
     path(
         'course/<pk>/work/',
         (views.StudentCourseWorkListView.as_view()),
@@ -38,11 +43,7 @@ urlpatterns = [
         (views.StudentCourseDetailView.as_view()),
         name='student_course_detail_module'
     ),
-        path(
-        'course/<pk>/work/<work_id>/',
-        (views.StudentCourseWorkDetailView.as_view()),
-        name='student_work_detail'
-    ),
+
     path(
         'enroll-course',
         views.StudentEnrollCourseView.as_view(),

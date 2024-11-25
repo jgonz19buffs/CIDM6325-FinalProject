@@ -16,7 +16,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 from .forms import ModuleFormSet
-from .models import Content, Course, Module, Subject
+from .models import Content, Course, Module, Subject, Work
 from students.forms import CourseEnrollForm
 
 
@@ -216,4 +216,45 @@ class CourseDetailView(DetailView):
         context['enroll_form'] = CourseEnrollForm(
             initial={'course': self.object}
         )
+        return context
+    
+class CourseWorkListView(OwnerCourseMixin, ListView):
+    model = Work
+    template_name = 'courses/manage/course/work/list.html'
+    permission_required = 'courses.view_course'
+
+    def get_queryset(self):
+        
+        course = get_object_or_404(Course,pk=self.kwargs['pk'])
+        return Work.objects.filter(course=course)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['course'] = get_object_or_404(Course, pk=self.kwargs['pk'])
+        return context
+    
+class CourseWorkDetailView(OwnerCourseMixin, DetailView):
+    model = Course
+    template_name = 'courses/manage/course/work/detail.html'
+    permission_required = 'courses.view_course'
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(course_id=self.kwargs['pk'])
+    
+    def get_object(self, queryset=None):
+        work_id = self.kwargs.get('work_id')
+        course_id = self.kwargs.get('pk')
+
+        work = get_object_or_404(
+            Work,
+            id=work_id
+        )
+        print(work.object_id)
+        return work
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['course_id'] = self.kwargs['pk']
+        context['work_id'] = self.kwargs['work_id']
         return context
