@@ -7,8 +7,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from courses.api.pagination import StandardPagination
 from courses.api.permissions import IsEnrolled
-from courses.api.serializers import CourseSerializer, CourseWithContentsSerializer, SubjectSerializer
-from courses.models import Course, Subject
+from courses.api.serializers import CourseSerializer, CourseWithContentsSerializer, SubjectSerializer, WorkWithContentsSerializer
+from courses.models import Course, Subject, Work
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
 
@@ -61,3 +61,9 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 #         course = get_object_or_404(Course, pk=pk)
 #         course.students.add(request.user)
 #         return Response({'enrolled': True})
+
+class WorkViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Work.objects.all()
+    serializer_class = WorkWithContentsSerializer
+    pagination_class = StandardPagination
+

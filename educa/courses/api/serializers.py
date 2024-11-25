@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from courses.models import Content, Course, Module, Subject
+from courses.models import Content, Course, Module, Subject, Work
 from django.db.models import Count
 
 class SubjectSerializer(serializers.ModelSerializer):
@@ -75,3 +75,8 @@ class CourseWithContentsSerializer(serializers.ModelSerializer):
             'owner',
             'modules'
         ]
+
+class WorkWithContentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Work
+        fields = ['id', 'title', 'owner','object_id']
