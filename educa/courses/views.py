@@ -250,7 +250,6 @@ class CourseWorkDetailView(OwnerCourseMixin, DetailView):
             Work,
             id=work_id
         )
-        print(work.object_id)
         return work
     
     def get_context_data(self, **kwargs):
