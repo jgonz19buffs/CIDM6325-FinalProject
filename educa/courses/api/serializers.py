@@ -76,7 +76,20 @@ class CourseWithContentsSerializer(serializers.ModelSerializer):
             'modules'
         ]
 
-class WorkWithContentsSerializer(serializers.ModelSerializer):
+class WorkSerializer(serializers.ModelSerializer):
+    item = ItemRelatedField(read_only=True)
     class Meta:
         model = Work
-        fields = ['id', 'title', 'owner','object_id']
+        fields = ['id', 'course_id', 'owner','item']
+
+class CourseWithWorksSerializer(serializers.ModelSerializer):
+    works = WorkSerializer(many=True)
+    class Meta:
+        model = Work
+        fields = [
+            'id',
+            'title',
+            'created',
+            'owner',
+            'works'
+        ]

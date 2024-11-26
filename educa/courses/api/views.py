@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from courses.api.pagination import StandardPagination
 from courses.api.permissions import IsEnrolled
-from courses.api.serializers import CourseSerializer, CourseWithContentsSerializer, SubjectSerializer, WorkWithContentsSerializer
+from courses.api.serializers import CourseSerializer, CourseWithContentsSerializer, SubjectSerializer, CourseWithWorksSerializer, WorkSerializer
 from courses.models import Course, Subject, Work
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
@@ -52,6 +52,27 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
     )
     def contents(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
+    
+    @action(
+        detail=True,
+        methods=['get'],
+        serializer_class=CourseWithWorksSerializer,
+        authentication_classes=[BasicAuthentication],
+        permission_classes=[IsAuthenticated]
+    )
+    def works(self, request, *args, **kwargs):
+        course = self.get_object()
+        if course.owner == request.user:
+            works = Work.objects.filter(course_id=course.id)
+        else:
+            works = Work.objects.filter(course_id=course.id, owner=request.user)
+
+        serializer = WorkSerializer(works, many=True)
+        response_data = {
+            'works': serializer.data
+        }
+
+        return Response(response_data)
 
 
 # class CourseEnrollView(APIView):
@@ -61,15 +82,4 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 #         course = get_object_or_404(Course, pk=pk)
 #         course.students.add(request.user)
 #         return Response({'enrolled': True})
-
-class WorkViewSet(viewsets.ReadOnlyModelViewSet):
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated]
-    serializer_class = WorkWithContentsSerializer
-    pagination_class = StandardPagination
-
-    def get_queryset(self):
-        user = self.request.user
-        print(user.id)
-        return Work.objects.filter(owner=self.request.user.id)
 
