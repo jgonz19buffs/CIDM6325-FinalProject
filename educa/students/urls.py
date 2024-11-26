@@ -25,22 +25,22 @@ urlpatterns = [
     ),
     path(
         'course/<pk>/work/<work_id>/',
-        (views.StudentCourseWorkDetailView.as_view()),
+        cache_page(60 * 15)(views.StudentCourseWorkDetailView.as_view()),
         name='student_work_detail'
     ),
     path(
         'course/<pk>/work/',
-        (views.StudentCourseWorkListView.as_view()),
+        cache_page(60 * 15)(views.StudentCourseWorkListView.as_view()),
         name='student_work_list'
     ),
     path(
         'course/<pk>/',
-        (views.StudentCourseDetailView.as_view()),
+        cache_page(60 * 15)(views.StudentCourseDetailView.as_view()),
         name='student_course_detail'
     ),
     path(
         'course/<pk>/<module_id>/',
-        (views.StudentCourseDetailView.as_view()),
+        cache_page(60 * 15)(views.StudentCourseDetailView.as_view()),
         name='student_course_detail_module'
     ),
 
