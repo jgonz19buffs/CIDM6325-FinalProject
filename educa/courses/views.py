@@ -1,6 +1,7 @@
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from django.apps import apps
 from django.core.cache import cache
+from django.core.paginator import Paginator
 from django.db.models import Count
 from django.contrib.auth.mixins import (
     LoginRequiredMixin,
@@ -199,6 +200,7 @@ class CourseListView(TemplateResponseMixin, View):
             if not courses:
                 courses = all_courses
                 cache.set('all_courses', courses)
+
         return self.render_to_response(
             {
                 'subjects': subjects,

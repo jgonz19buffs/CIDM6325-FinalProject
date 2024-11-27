@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-27 10:16-0600\n"
-"PO-Revision-Date: 2024-11-27 10:16+0000\n"
+"POT-Creation-Date: 2024-11-27 11:22-0600\n"
+"PO-Revision-Date: 2024-11-27 11:23+0000\n"
 "Last-Translator:   <jgonzalez19@buffs.wtamu.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -332,6 +332,22 @@ msgstr "Guardar módulos"
 msgid "Work info"
 msgstr "Información de la obra"
 
+#: .\courses\templates\pagination.html:6
+msgid "Previous"
+msgstr "Anterior"
+
+#: .\courses\templates\pagination.html:9
+msgid "Page"
+msgstr "Página"
+
+#: .\courses\templates\pagination.html:9
+msgid "of"
+msgstr "de"
+
+#: .\courses\templates\pagination.html:13
+msgid "Next"
+msgstr "Próxima"
+
 #: .\courses\templates\registration\logged_out.html:4
 #: .\courses\templates\registration\logged_out.html:7
 msgid "Logged out"
@@ -429,11 +445,11 @@ msgstr "<pk>/trabajo/<work_id>/"
 msgid "<pk>/work/"
 msgstr "<pk>/trabajo/"
 
-#: .\educa\settings.py:129
+#: .\educa\settings.py:130
 msgid "English"
 msgstr "Inglés"
 
-#: .\educa\settings.py:130
+#: .\educa\settings.py:131
 msgid "Spanish"
 msgstr "Español"
 

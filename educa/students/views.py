@@ -4,6 +4,7 @@ from django.apps import apps
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.db.models.query import QuerySet
 from django.forms import BaseModelForm
 from django.forms.models import modelform_factory
@@ -54,8 +55,12 @@ class StudentCourseListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        return qs.filter(students__in=[self.request.user])
-    
+        course_list = qs.filter(students__in=[self.request.user])
+        paginator = Paginator(course_list, 3)
+        page_number = self.request.GET.get('page', 1)
+        courses = paginator.page(page_number)
+        return courses
+
 class StudentCourseDetailView(LoginRequiredMixin, DetailView):
     model = Course
     template_name = 'students/course/detail.html'
