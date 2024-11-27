@@ -60,7 +60,7 @@ Function-Based Views and Templates          | x         |       |         |
 WOrking with URLs                           |           |       | x       |
 ***Chapter 2***                             |           |       |         |
 Canonical Urls for SEO                      | x         |       |         |
-Pagination                                  | x         |       |         |
+Pagination                                  |           | x     |         |
 Class-Based Views                           | x         |       |         |
 Sending email (internal in console)         |           |       |         |
 Sending email (with 3rd party)              |           |       |         |
