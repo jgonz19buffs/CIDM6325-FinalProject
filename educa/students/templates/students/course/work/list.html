@@ -20,6 +20,7 @@
         {% translate "to view a different course" %}.
       </p>
     {% endfor %}
+    {% include "pagination.html" with page=object_list %}
   </div>
   </div>
   <h3>{% translate "Add new work" %}:</h3>
@@ -46,7 +47,6 @@
     </li>
   </ul>
   </div>
-
 {% endblock %}
 
 

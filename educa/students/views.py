@@ -89,7 +89,11 @@ class StudentCourseWorkListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        return qs.filter(owner=self.request.user.id, course_id=self.kwargs['pk'])
+        work_list = qs.filter(owner=self.request.user.id, course_id=self.kwargs['pk'])
+        paginator = Paginator(work_list, 3)
+        page_number = self.request.GET.get('page', 1)
+        works = paginator.page(page_number)
+        return works
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
