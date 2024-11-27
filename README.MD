@@ -89,7 +89,7 @@ Messages framework                          |           |       |         |
 Use front-end framework (bootstrap)         |           |       |         |
 Custom auth backend                         |           |       |         |
 Social Authentication                       |           |       |         |
-https                                       |           |       |         |
+https                                       |           | x     |         |
 ***Chapter 6***                             |           |       |         |
 Many-to-Many Model Relationships            | x         |       |         |
 Django Forms Classes                        | x         |       |         |
