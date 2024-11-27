@@ -116,11 +116,11 @@ PDF Generation                              |           |       |         |
 Send PDFs via Email (external)              |           |       |         |
 ***Chapter 10***                            |           |       |         |
 Recommender Engine with redis               |           |       |         |
-***Chapter 11***                            |           |       |         | 
+***Chapter 11***                            |           |       |         |
 Internationalization (I18N)                 |           | x     |         |
-Code translation                            |           |       |         |
-Template translation                        |           |       |  x      |
-Rosetta                                     |           |       |  x      |
+Code translation                            |           |       |         | x
+Template translation                        |           |       |         | x
+Rosetta                                     |           |       |         | x
 Model translation with `django-parler`      |           |       |         |
 Localization with `django-localflavor`      |           |       |         |
 ***Chapter 12***                            |           |       |         |
