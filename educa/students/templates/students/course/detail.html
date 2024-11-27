@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n static %}
 {% load cache %}
 
 {% block title %}
@@ -10,25 +11,25 @@
     {{ module.title }}
   </h1>
   <div class="contents">
-    <h3>Modules</h3>
+    <h3>{% translate "Modules" %}</h3>
     <ul id="modules">
       {% for m in object.modules.all %}
         <li data-id="{{ m.id }}" {% if m == module %}class="selected"{% endif %}>
           <a href="{% url "student_course_detail_module" object.id m.id %}">
             <span>
-              Module <span class="order">{{ m.order|add:1 }}</span>
+              {% translate "Module" %} <span class="order">{{ m.order|add:1 }}</span>
             </span>
             <br>
             {{ m.title }}
           </a>
         </li>
       {% empty %}
-        <li>No modules yet.</li>
+        <li>{% translate "No modules yet" %}.</li>
       {% endfor %}
     </ul>
     <h3>
       <a href="{% url "chat:course_chat_room" object.id %}">
-        Course chat room
+        {% translate "Course chat room" %}
       </a>
     </h3>
   </div>

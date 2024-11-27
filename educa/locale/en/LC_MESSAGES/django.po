@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 18:22-0600\n"
+"POT-Creation-Date: 2024-11-26 20:04-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\chat\templates\chat\room.html:4
+msgid "Chat room for"
+msgstr ""
+
+#: .\chat\templates\chat\room.html:22
+msgid "Send"
+msgstr ""
+
 #: .\courses\templates\base.html:17
+msgid "Language"
+msgstr ""
+
+#: .\courses\templates\base.html:29
 msgid "Sign out"
 msgstr ""
 
-#: .\courses\templates\base.html:22
+#: .\courses\templates\base.html:34
 msgid "Sign in"
 msgstr ""
 
@@ -76,6 +88,8 @@ msgstr ""
 
 #: .\courses\templates\courses\manage\content\form.html:6
 #: .\courses\templates\courses\manage\content\form.html:15
+#: .\courses\templates\courses\work\form.html:6
+#: .\courses\templates\courses\work\form.html:15
 #: .\students\templates\students\course\work\form.html:6
 msgid "Edit content"
 msgstr ""
@@ -83,6 +97,8 @@ msgstr ""
 #: .\courses\templates\courses\manage\content\form.html:8
 #: .\courses\templates\courses\manage\content\form.html:17
 #: .\courses\templates\courses\manage\module\content_list.html:55
+#: .\courses\templates\courses\work\form.html:8
+#: .\courses\templates\courses\work\form.html:17
 #: .\students\templates\students\course\work\form.html:8
 msgid "Add new content"
 msgstr ""
@@ -94,6 +110,7 @@ msgid "Course info"
 msgstr ""
 
 #: .\courses\templates\courses\manage\content\form.html:25
+#: .\courses\templates\courses\work\form.html:25
 msgid "Save content"
 msgstr ""
 
@@ -214,14 +231,17 @@ msgstr ""
 #: .\courses\templates\courses\manage\module\content_list.html:6
 #: .\courses\templates\courses\manage\module\content_list.html:20
 #: .\courses\templates\courses\manage\module\content_list.html:34
+#: .\students\templates\students\course\detail.html:20
 msgid "Module"
 msgstr ""
 
 #: .\courses\templates\courses\manage\module\content_list.html:13
+#: .\students\templates\students\course\detail.html:14
 msgid "Modules"
 msgstr ""
 
 #: .\courses\templates\courses\manage\module\content_list.html:27
+#: .\students\templates\students\course\detail.html:27
 msgid "No modules yet"
 msgstr ""
 
@@ -259,6 +279,10 @@ msgstr ""
 
 #: .\courses\templates\courses\manage\module\formset.html:16
 msgid "Save modules"
+msgstr ""
+
+#: .\courses\templates\courses\work\form.html:21
+msgid "Work info"
 msgstr ""
 
 #: .\courses\templates\registration\logged_out.html:4
@@ -300,6 +324,10 @@ msgstr ""
 msgid "Spanish"
 msgstr ""
 
+#: .\students\templates\students\course\detail.html:32
+msgid "Course chat room"
+msgstr ""
+
 #: .\students\templates\students\course\list.html:13
 msgid "Access contents"
 msgstr ""
@@ -318,10 +346,6 @@ msgstr ""
 
 #: .\students\templates\students\course\list.html:21
 msgid "to enroll in a course"
-msgstr ""
-
-#: .\students\templates\students\course\work\detail.html:21
-msgid "Course chat room"
 msgstr ""
 
 #: .\students\templates\students\course\work\list.html:18

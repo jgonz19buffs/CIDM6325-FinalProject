@@ -57,7 +57,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    #'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -180,3 +180,7 @@ ALLOWED_FILE_EXTENSIONS = {
     'image': ['.png'],
     'file': ['.pdf']
 }
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]

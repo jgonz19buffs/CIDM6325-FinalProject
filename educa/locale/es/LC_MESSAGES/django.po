@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 18:22-0600\n"
-"PO-Revision-Date: 2024-11-26 18:22+0000\n"
+"POT-Creation-Date: 2024-11-26 20:04-0600\n"
+"PO-Revision-Date: 2024-11-26 20:05+0000\n"
 "Last-Translator:   <jgonzalez19@buffs.wtamu.edu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,13 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
-"X-Translated-Using: django-rosetta 0.10.0\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
+#: .\chat\templates\chat\room.html:4
+#| msgid "Course chat room"
+msgid "Chat room for"
+msgstr "Sala de chat del curso"
+
+#: .\chat\templates\chat\room.html:22
+msgid "Send"
+msgstr "Enviar"
 
 #: .\courses\templates\base.html:17
+msgid "Language"
+msgstr "Idioma"
+
+#: .\courses\templates\base.html:29
 msgid "Sign out"
 msgstr "Cerrar sesión"
 
-#: .\courses\templates\base.html:22
+#: .\courses\templates\base.html:34
 msgid "Sign in"
 msgstr "Inicia sesión"
 
@@ -77,6 +90,8 @@ msgstr "curso"
 
 #: .\courses\templates\courses\manage\content\form.html:6
 #: .\courses\templates\courses\manage\content\form.html:15
+#: .\courses\templates\courses\work\form.html:6
+#: .\courses\templates\courses\work\form.html:15
 #: .\students\templates\students\course\work\form.html:6
 msgid "Edit content"
 msgstr "Editar contenido"
@@ -84,6 +99,8 @@ msgstr "Editar contenido"
 #: .\courses\templates\courses\manage\content\form.html:8
 #: .\courses\templates\courses\manage\content\form.html:17
 #: .\courses\templates\courses\manage\module\content_list.html:55
+#: .\courses\templates\courses\work\form.html:8
+#: .\courses\templates\courses\work\form.html:17
 #: .\students\templates\students\course\work\form.html:8
 msgid "Add new content"
 msgstr "Agregar nuevo contenido"
@@ -95,6 +112,7 @@ msgid "Course info"
 msgstr "Información del curso"
 
 #: .\courses\templates\courses\manage\content\form.html:25
+#: .\courses\templates\courses\work\form.html:25
 msgid "Save content"
 msgstr "Guardar contenido"
 
@@ -167,7 +185,7 @@ msgstr "Crear nuevo curso"
 #: .\courses\templates\courses\manage\course\work\detail.html:16
 #: .\students\templates\students\course\work\detail.html:16
 msgid "Return to work list"
-msgstr "Lista de regreso al trabajo"
+msgstr "Volver a lista de trabajos"
 
 #: .\courses\templates\courses\manage\course\work\detail.html:23
 #: .\courses\templates\courses\manage\course\work\list.html:14
@@ -215,14 +233,17 @@ msgstr "para ver un curso diferente"
 #: .\courses\templates\courses\manage\module\content_list.html:6
 #: .\courses\templates\courses\manage\module\content_list.html:20
 #: .\courses\templates\courses\manage\module\content_list.html:34
+#: .\students\templates\students\course\detail.html:20
 msgid "Module"
 msgstr "Módulo"
 
 #: .\courses\templates\courses\manage\module\content_list.html:13
+#: .\students\templates\students\course\detail.html:14
 msgid "Modules"
 msgstr "Módulos"
 
 #: .\courses\templates\courses\manage\module\content_list.html:27
+#: .\students\templates\students\course\detail.html:27
 msgid "No modules yet"
 msgstr "Todavía no hay módulos"
 
@@ -261,6 +282,10 @@ msgstr "Módulos del curso"
 #: .\courses\templates\courses\manage\module\formset.html:16
 msgid "Save modules"
 msgstr "Guardar módulos"
+
+#: .\courses\templates\courses\work\form.html:21
+msgid "Work info"
+msgstr "Información de la obra"
 
 #: .\courses\templates\registration\logged_out.html:4
 #: .\courses\templates\registration\logged_out.html:7
@@ -303,6 +328,10 @@ msgstr "Inglés"
 msgid "Spanish"
 msgstr "Español"
 
+#: .\students\templates\students\course\detail.html:32
+msgid "Course chat room"
+msgstr "Sala de chat del curso"
+
 #: .\students\templates\students\course\list.html:13
 msgid "Access contents"
 msgstr "Acceder a los contenidos"
@@ -322,10 +351,6 @@ msgstr "Buscar cursos"
 #: .\students\templates\students\course\list.html:21
 msgid "to enroll in a course"
 msgstr "Para inscribirse en un curso"
-
-#: .\students\templates\students\course\work\detail.html:21
-msgid "Course chat room"
-msgstr "Sala de chat del curso"
 
 #: .\students\templates\students\course\work\list.html:18
 msgid "You have not uploaded any work yet"

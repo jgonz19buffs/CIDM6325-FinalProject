@@ -10,6 +10,18 @@
   <body>
     <div id="header">
       <a href="/" class="logo">Educa</a>
+      {% get_current_language as LANGUAGE_CODE %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as languages %}
+      <div class="text-end">
+        <p >{% translate "Language" %}:</p>
+          {% for language in languages %}
+              <a href="/{{ language.code }}/"
+              {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                {{ language.name_local }}
+              </a>
+          {% endfor %}
+      </div>
       <ul class="menu">
         {% if request.user.is_authenticated %}
           <li>
