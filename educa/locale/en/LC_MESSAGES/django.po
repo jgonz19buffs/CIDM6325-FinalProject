@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-26 20:04-0600\n"
+"POT-Creation-Date: 2024-11-27 10:04-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,48 @@ msgstr ""
 
 #: .\chat\templates\chat\room.html:22
 msgid "Send"
+msgstr ""
+
+#: .\chat\urls.py:9
+msgid "room/<int:course_id>/"
+msgstr ""
+
+#: .\courses\models.py:11 .\courses\models.py:32 .\courses\models.py:55
+#: .\courses\models.py:93 .\courses\models.py:147
+msgid "title"
+msgstr ""
+
+#: .\courses\models.py:34
+msgid "overview"
+msgstr ""
+
+#: .\courses\models.py:35 .\courses\models.py:94 .\courses\models.py:149
+msgid "created"
+msgstr ""
+
+#: .\courses\models.py:56
+msgid "description"
+msgstr ""
+
+#: .\courses\models.py:79 .\courses\models.py:146
+msgid "object_id"
+msgstr ""
+
+#: .\courses\models.py:95
+msgid "updated"
+msgstr ""
+
+#: .\courses\models.py:111
+msgid "content"
+msgstr ""
+
+#: .\courses\models.py:112 .\courses\models.py:116 .\courses\models.py:120
+#: .\courses\models.py:125
+msgid "file"
+msgstr ""
+
+#: .\courses\models.py:124
+msgid "url"
 msgstr ""
 
 #: .\courses\templates\base.html:17
@@ -235,6 +277,10 @@ msgstr ""
 msgid "Module"
 msgstr ""
 
+#: .\courses\templates\courses\manage\module\content_list.html:11
+msgid "Course"
+msgstr ""
+
 #: .\courses\templates\courses\manage\module\content_list.html:13
 #: .\students\templates\students\course\detail.html:14
 msgid "Modules"
@@ -316,12 +362,108 @@ msgstr ""
 msgid "Please, use the following form to log-in"
 msgstr ""
 
+#: .\courses\urls.py:7 .\students\urls.py:8
+msgid "content/order/"
+msgstr ""
+
+#: .\courses\urls.py:12
+msgid "content/<int:id>/delete/"
+msgstr ""
+
+#: .\courses\urls.py:17
+msgid "create/"
+msgstr ""
+
+#: .\courses\urls.py:22
+msgid "mine/"
+msgstr ""
+
+#: .\courses\urls.py:27
+msgid "module/order/"
+msgstr ""
+
+#: .\courses\urls.py:32
+msgid "module/<int:module_id>/content/<model_name>/create/"
+msgstr ""
+
+#: .\courses\urls.py:37
+msgid "module/<int:module_id>/content/<model_name>/<id>/"
+msgstr ""
+
+#: .\courses\urls.py:42
+msgid "module/<int:module_id>/"
+msgstr ""
+
+#: .\courses\urls.py:47
+msgid "subject/<slug:subject>/"
+msgstr ""
+
+#: .\courses\urls.py:52
+msgid "subject/<slug:subject>"
+msgstr ""
+
+#: .\courses\urls.py:57
+msgid "<slug:slug>/"
+msgstr ""
+
+#: .\courses\urls.py:62
+msgid "<pk>/edit/"
+msgstr ""
+
+#: .\courses\urls.py:67
+msgid "<pk>/delete/"
+msgstr ""
+
+#: .\courses\urls.py:72
+msgid "<pk>/module/"
+msgstr ""
+
+#: .\courses\urls.py:77
+msgid "<pk>/work/<work_id>/"
+msgstr ""
+
+#: .\courses\urls.py:82
+msgid "<pk>/work/"
+msgstr ""
+
 #: .\educa\settings.py:129
 msgid "English"
 msgstr ""
 
 #: .\educa\settings.py:130
 msgid "Spanish"
+msgstr ""
+
+#: .\educa\urls.py:27
+msgid "accounts/login/"
+msgstr ""
+
+#: .\educa\urls.py:28
+msgid "accounts/logout/"
+msgstr ""
+
+#: .\educa\urls.py:29
+msgid "admin/"
+msgstr ""
+
+#: .\educa\urls.py:30
+msgid "api/"
+msgstr ""
+
+#: .\educa\urls.py:31
+msgid "chat/"
+msgstr ""
+
+#: .\educa\urls.py:32
+msgid "course/"
+msgstr ""
+
+#: .\educa\urls.py:33
+msgid "rosetta/"
+msgstr ""
+
+#: .\educa\urls.py:34
+msgid "students/"
 msgstr ""
 
 #: .\students\templates\students\course\detail.html:32
@@ -367,4 +509,40 @@ msgstr ""
 
 #: .\students\templates\students\student\registration.html:17
 msgid "Create my account"
+msgstr ""
+
+#: .\students\urls.py:13
+msgid "courses/"
+msgstr ""
+
+#: .\students\urls.py:18
+msgid "course/<pk>/work/content/<model_name>/create/"
+msgstr ""
+
+#: .\students\urls.py:23
+msgid "course/<pk>/work/content/<model_name>/<id>/"
+msgstr ""
+
+#: .\students\urls.py:28
+msgid "course/<pk>/work/<work_id>/"
+msgstr ""
+
+#: .\students\urls.py:33
+msgid "course/<pk>/work/"
+msgstr ""
+
+#: .\students\urls.py:38
+msgid "course/<pk>/"
+msgstr ""
+
+#: .\students\urls.py:43
+msgid "course/<pk>/<module_id>/"
+msgstr ""
+
+#: .\students\urls.py:49
+msgid "enroll-course"
+msgstr ""
+
+#: .\students\urls.py:54
+msgid "register/"
 msgstr ""

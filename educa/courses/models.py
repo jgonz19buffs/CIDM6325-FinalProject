@@ -3,11 +3,12 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.template.loader import render_to_string
+from django.utils.translation import gettext_lazy as _
 from .fields import OrderField
 
 # Create your models here.
 class Subject(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(_('title'),max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:
@@ -28,10 +29,10 @@ class Course(models.Model):
         related_name='courses',
         on_delete=models.CASCADE
     )
-    title = models.CharField(max_length=200)
+    title = models.CharField(_('title'),max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    overview = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
+    overview = models.TextField(_('overview'),)
+    created = models.DateTimeField(_('created'),auto_now_add=True)
     students = models.ManyToManyField(
         User,
         related_name='courses_joined',
@@ -51,8 +52,8 @@ class Module(models.Model):
         related_name='modules',
         on_delete=models.CASCADE
     )
-    title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    title = models.CharField(_('title'),max_length=200)
+    description = models.TextField(_('description'),blank=True)
     order = OrderField(blank=True, for_fields=['course'])
 
     class Meta:
@@ -75,7 +76,7 @@ class Content(models.Model):
             'model__in':('text', 'video', 'image', 'file')
         }
     )
-    object_id = models.PositiveIntegerField()
+    object_id = models.PositiveIntegerField(_('object_id'))
     item = GenericForeignKey('content_type', 'object_id')
     order = OrderField(blank=True, for_fields=['module'])
 
@@ -89,9 +90,9 @@ class ItemBase(models.Model):
         related_name='%(class)s_related',
         on_delete=models.CASCADE
     )
-    title = models.CharField(max_length=250)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    title = models.CharField(_('title'),max_length=250)
+    created = models.DateTimeField(_('created'),auto_now_add=True)
+    updated = models.DateTimeField(_('updated'),auto_now=True)
 
     class Meta:
         abstract = True
@@ -107,21 +108,21 @@ class ItemBase(models.Model):
 
 
 class Text(ItemBase):
-    content = models.TextField(blank=True, null=True)
-    file = models.FileField(upload_to='texts', blank=True, null=True)
+    content = models.TextField(_('content'),blank=True, null=True)
+    file = models.FileField(_('file'),upload_to='texts', blank=True, null=True)
 
 
 class File(ItemBase):
-    file = models.FileField(upload_to='files')
+    file = models.FileField(_('file'),upload_to='files')
 
 
 class Image(ItemBase):
-    file = models.FileField(upload_to='images')
+    file = models.FileField(_('file'),upload_to='images')
 
 
 class Video(ItemBase):
-    url = models.URLField(blank=True, null=True)
-    file = models.FileField(upload_to='videos', blank=True, null=True)
+    url = models.URLField(_('url'),blank=True, null=True)
+    file = models.FileField(_('file'),upload_to='videos', blank=True, null=True)
 
 
 class Work(models.Model):
@@ -142,10 +143,10 @@ class Work(models.Model):
             'model__in':('text', 'video', 'image', 'file')
         }
     )
-    object_id = models.PositiveIntegerField()
-    title = models.CharField(max_length=200)
+    object_id = models.PositiveIntegerField(_('object_id'))
+    title = models.CharField(_('title'),max_length=200)
     item = GenericForeignKey('content_type', 'object_id')
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(_('created'),auto_now_add=True)
 
     class Meta:
         ordering = ['-created']

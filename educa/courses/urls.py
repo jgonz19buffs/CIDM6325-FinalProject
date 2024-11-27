@@ -1,84 +1,85 @@
 from django.urls import path
+from django.utils.translation import gettext_lazy as _
 from . import views
 
 urlpatterns = [
     path(
-        'content/order/',
+        _('content/order/'),
         views.ContentOrderView.as_view(),
         name='content_order'
     ),
     path(
-        'content/<int:id>/delete/',
+        _('content/<int:id>/delete/'),
         views.ContentDeleteView.as_view(),
         name='module_content_delete'
     ),
     path(
-        'create/',
+        _('create/'),
         views.CourseCreateView.as_view(),
         name='course_create'
     ),
     path(
-        'mine/',
+        _('mine/'),
         views.ManageCourseListView.as_view(),
         name='manage_course_list'
     ),
     path(
-        'module/order/',
+        _('module/order/'),
         views.ModuleOrderView.as_view(),
         name='module_order'
     ),
     path(
-        'module/<int:module_id>/content/<model_name>/create/',
+        _('module/<int:module_id>/content/<model_name>/create/'),
         views.ContentCreateUpdateView.as_view(),
         name='module_content_create'
     ), 
     path(
-        'module/<int:module_id>/content/<model_name>/<id>/',
+        _('module/<int:module_id>/content/<model_name>/<id>/'),
         views.ContentCreateUpdateView.as_view(),
         name='module_content_update'
     ),
     path(
-        'module/<int:module_id>/',
+        _('module/<int:module_id>/'),
         views.ModuleContentListView.as_view(),
         name='module_content_list'
     ),
     path(
-        'subject/<slug:subject>/',
+        _('subject/<slug:subject>/'),
         views.CourseListView.as_view(),
         name='course_list_subject'
     ),
     path(
-        'subject/<slug:subject>',
+        _('subject/<slug:subject>'),
         views.CourseListView.as_view(),
         name='course_list_subject'
     ),
     path(
-        '<slug:slug>/',
+        _('<slug:slug>/'),
         views.CourseDetailView.as_view(),
         name='course_detail'
     ),
     path(
-        '<pk>/edit/',
+        _('<pk>/edit/'),
         views.CourseUpdateView.as_view(),
         name='course_edit'
     ),
     path(
-        '<pk>/delete/',
+        _('<pk>/delete/'),
         views.CourseDeleteView.as_view(),
         name='course_delete'
     ),
     path(
-        '<pk>/module/',
+        _('<pk>/module/'),
         views.CourseModuleUpdateView.as_view(),
         name='course_module_update'
     ),
     path(
-        '<pk>/work/<work_id>/',
+        _('<pk>/work/<work_id>/'),
         views.CourseWorkDetailView.as_view(),
         name='course_work_detail'
     ),
     path(
-        '<pk>/work/',
+        _('<pk>/work/'),
         views.CourseWorkListView.as_view(),
         name='course_work_list'
     ),
