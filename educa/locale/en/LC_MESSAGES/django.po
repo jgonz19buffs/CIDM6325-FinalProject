@@ -1,0 +1,346 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-26 18:22-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\courses\templates\base.html:17
+msgid "Sign out"
+msgstr ""
+
+#: .\courses\templates\base.html:22
+msgid "Sign in"
+msgstr ""
+
+#: .\courses\templates\courses\content\file.html:3
+msgid "Download file"
+msgstr ""
+
+#: .\courses\templates\courses\course\detail.html:14
+msgid "Overview"
+msgstr ""
+
+#: .\courses\templates\courses\course\detail.html:18
+#: .\courses\templates\courses\course\list.html:49
+msgid "modules"
+msgstr ""
+
+#: .\courses\templates\courses\course\detail.html:19
+#: .\courses\templates\courses\course\list.html:50
+msgid "Instructor"
+msgstr ""
+
+#: .\courses\templates\courses\course\detail.html:26
+msgid "Enroll now"
+msgstr ""
+
+#: .\courses\templates\courses\course\detail.html:30
+msgid "Register to enroll"
+msgstr ""
+
+#: .\courses\templates\courses\course\list.html:6
+#: .\courses\templates\courses\course\list.html:15
+msgid "courses"
+msgstr ""
+
+#: .\courses\templates\courses\course\list.html:8
+#: .\courses\templates\courses\course\list.html:17
+msgid "All courses"
+msgstr ""
+
+#: .\courses\templates\courses\course\list.html:21
+msgid "Subjects"
+msgstr ""
+
+#: .\courses\templates\courses\course\list.html:24
+msgid "All"
+msgstr ""
+
+#: .\courses\templates\courses\course\list.html:32
+msgid "course"
+msgstr ""
+
+#: .\courses\templates\courses\manage\content\form.html:6
+#: .\courses\templates\courses\manage\content\form.html:15
+#: .\students\templates\students\course\work\form.html:6
+msgid "Edit content"
+msgstr ""
+
+#: .\courses\templates\courses\manage\content\form.html:8
+#: .\courses\templates\courses\manage\content\form.html:17
+#: .\courses\templates\courses\manage\module\content_list.html:55
+#: .\students\templates\students\course\work\form.html:8
+msgid "Add new content"
+msgstr ""
+
+#: .\courses\templates\courses\manage\content\form.html:21
+#: .\courses\templates\courses\manage\course\form.html:21
+#: .\students\templates\students\course\work\form.html:21
+msgid "Course info"
+msgstr ""
+
+#: .\courses\templates\courses\manage\content\form.html:25
+msgid "Save content"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\delete.html:4
+#: .\courses\templates\courses\manage\course\delete.html:7
+msgid "Delete course"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\delete.html:11
+msgid "Are you sure you want to delete"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\delete.html:12
+msgid "Confirm"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\form.html:6
+#: .\courses\templates\courses\manage\course\form.html:15
+msgid "Edit course"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\form.html:8
+#: .\courses\templates\courses\manage\course\form.html:17
+msgid "Create a new course"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\form.html:25
+msgid "Save course"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\list.html:4
+#: .\courses\templates\courses\manage\course\list.html:7
+#: .\students\templates\students\course\list.html:4
+#: .\students\templates\students\course\list.html:7
+msgid "My courses"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\list.html:13
+#: .\courses\templates\courses\manage\module\content_list.html:42
+#: .\courses\templates\courses\manage\module\formset.html:5
+#: .\courses\templates\courses\manage\module\formset.html:9
+msgid "Edit"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\list.html:14
+msgid "Delete"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\list.html:15
+#: .\courses\templates\courses\manage\module\content_list.html:31
+msgid "Edit modules"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\list.html:18
+msgid "Manage contents"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\list.html:21
+msgid "Work"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\list.html:25
+msgid "You haven't created any courses yet"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\list.html:28
+msgid "Create new course"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\detail.html:16
+#: .\students\templates\students\course\work\detail.html:16
+msgid "Return to work list"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\detail.html:23
+#: .\courses\templates\courses\manage\course\work\list.html:14
+msgid "Submitted by"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\detail.html:24
+msgid "Submit date"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\list.html:4
+#: .\students\templates\students\course\work\list.html:4
+#: .\students\templates\students\course\work\list.html:7
+msgid "My work"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\list.html:7
+msgid "Course work"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\list.html:13
+#: .\students\templates\students\course\work\list.html:12
+msgid "Created"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\list.html:16
+#: .\students\templates\students\course\work\list.html:14
+msgid "Access work"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\list.html:20
+msgid "No work has been uploaded yet"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\list.html:21
+#: .\students\templates\students\course\work\list.html:19
+msgid "Browse my courses"
+msgstr ""
+
+#: .\courses\templates\courses\manage\course\work\list.html:22
+#: .\students\templates\students\course\work\list.html:20
+msgid "to view a different course"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:6
+#: .\courses\templates\courses\manage\module\content_list.html:20
+#: .\courses\templates\courses\manage\module\content_list.html:34
+msgid "Module"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:13
+msgid "Modules"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:27
+msgid "No modules yet"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:35
+msgid "Module contents"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:52
+msgid "This module has no contents yet"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:59
+#: .\students\templates\students\course\work\list.html:29
+msgid "Text"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:64
+#: .\students\templates\students\course\work\list.html:34
+msgid "Image"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:69
+#: .\students\templates\students\course\work\list.html:39
+msgid "Video"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\content_list.html:74
+#: .\students\templates\students\course\work\list.html:44
+msgid "File"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\formset.html:11
+msgid "Course modules"
+msgstr ""
+
+#: .\courses\templates\courses\manage\module\formset.html:16
+msgid "Save modules"
+msgstr ""
+
+#: .\courses\templates\registration\logged_out.html:4
+#: .\courses\templates\registration\logged_out.html:7
+msgid "Logged out"
+msgstr ""
+
+#: .\courses\templates\registration\logged_out.html:10
+msgid "You have been successfully logged out"
+msgstr ""
+
+#: .\courses\templates\registration\logged_out.html:11
+msgid "You can"
+msgstr ""
+
+#: .\courses\templates\registration\logged_out.html:11
+msgid "log-in again"
+msgstr ""
+
+#: .\courses\templates\registration\login.html:4
+#: .\courses\templates\registration\login.html:6
+#: .\courses\templates\registration\login.html:18
+msgid "Log-in"
+msgstr ""
+
+#: .\courses\templates\registration\login.html:9
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: .\courses\templates\registration\login.html:11
+msgid "Please, use the following form to log-in"
+msgstr ""
+
+#: .\educa\settings.py:129
+msgid "English"
+msgstr ""
+
+#: .\educa\settings.py:130
+msgid "Spanish"
+msgstr ""
+
+#: .\students\templates\students\course\list.html:13
+msgid "Access contents"
+msgstr ""
+
+#: .\students\templates\students\course\list.html:15
+msgid "Completed work"
+msgstr ""
+
+#: .\students\templates\students\course\list.html:19
+msgid "You are not enrolled in any courses yet"
+msgstr ""
+
+#: .\students\templates\students\course\list.html:20
+msgid "Browse courses"
+msgstr ""
+
+#: .\students\templates\students\course\list.html:21
+msgid "to enroll in a course"
+msgstr ""
+
+#: .\students\templates\students\course\work\detail.html:21
+msgid "Course chat room"
+msgstr ""
+
+#: .\students\templates\students\course\work\list.html:18
+msgid "You have not uploaded any work yet"
+msgstr ""
+
+#: .\students\templates\students\course\work\list.html:25
+msgid "Add new work"
+msgstr ""
+
+#: .\students\templates\students\student\registration.html:5
+#: .\students\templates\students\student\registration.html:10
+msgid "Sign up"
+msgstr ""
+
+#: .\students\templates\students\student\registration.html:13
+msgid "Enter your details to create an account"
+msgstr ""
+
+#: .\students\templates\students\student\registration.html:17
+msgid "Create my account"
+msgstr ""

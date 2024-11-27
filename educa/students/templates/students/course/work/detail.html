@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n static %}
 {% load cache %}
 
 {% block title %}
@@ -12,12 +13,12 @@
   <div class="contents">
     <h3>
       <a href="{% url "student_work_list" work.course_id %}">
-        Return to work list
+        {% translate "Return to work list" %}
       </a>
     </h3>
     <h3>
       <a href="{% url "chat:course_chat_room" object.id %}">
-        Course chat room
+        {% translate "Course chat room" %}
       </a>
     </h3>
   </div>

@@ -1,24 +1,25 @@
 {% extends "base.html" %}
+{% load i18n static %}
 
-{% block title %}My work{% endblock %}
+{% block title %}{% translate "My work" %}{% endblock %}
 
 {% block content %}
-  <h1>Course work</h1>
+  <h1>{% translate "Course work" %}</h1>
   <div class="module">
     {{ work.title }}
     {% for work in object_list %}
       <div class="course-info">
         <h3> {{ work.title }}</h3>
-        <p>Created: {{ work.created }}</p>
-        <p>Submitted by: {{work.owner}}</p>
+        <p>{% translate "Created" %}: {{ work.created }}</p>
+        <p>{% translate "Submitted by" %}: {{work.owner}}</p>
         <p><a href="{% url "course_work_detail" work.course_id work.id %}">
-        Access work</a></p>
+          {% translate "Access work" %}</a></p>
       </div>
     {% empty %}
       <p>
-        No work has been uploaded yet.
-        <a href="{% url "manage_course_list" %}">Browse my courses</a>
-        to view a different course.
+        {% translate "No work has been uploaded yet" %}.
+        <a href="{% url "manage_course_list" %}">{% translate "Browse my courses" %}</a>
+        {% translate "to view a different course" %}.
       </p>
     {% endfor %}
   </div>

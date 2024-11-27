@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load i18n static %}
 
-{% block title %}Delete course{% endblock %}
+{% block title %}{% translate "Delete course" %}{% endblock %}
 
 {% block content %}
-  <h1>Delete course "{{ object.title }}"</h1>
+  <h1>{% translate "Delete course" %} "{{ object.title }}"</h1>
   <div class="module">
     <form action="" method="post">
       {% csrf_token %}
-      <p>Are you sure you want to delete "{{ object }}"?</p>
-      <input type="submit" value="Confirm">
+      <p>{% translate "Are you sure you want to delete" %} "{{ object }}"?</p>
+      <input type="submit" value="{% translate "Confirm" %}">
     </form>
   </div>
 {% endblock %}

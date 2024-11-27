@@ -1,46 +1,47 @@
 {% extends "base.html" %}
+{% load i18n static %}
 
-{% block title %}My work{% endblock %}
+{% block title %}{% translate "My work" %}{% endblock %}
 
 {% block content %}
-  <h1>My work</h1>
+  <h1>{% translate "My work" %}</h1>
   <div class="module">
     {% for work in object_list %}
       <div class="course-info">
         <h3> {{ work.title }}</h3>
-        <p>Created: {{ work.created }}</p>
+        <p>{% translate "Created" %}: {{ work.created }}</p>
         <p><a href="{% url "student_work_detail" work.course_id work.id %}">
-        Access work</a></p>
+          {% translate "Access work" %}</a></p>
       </div>
     {% empty %}
       <p>
-        You have not uploaded any work yet.
-        <a href="{% url "student_course_list" %}">Browse my courses</a>
-        to view a different course.
+        {% translate "You have not uploaded any work yet" %}.
+        <a href="{% url "student_course_list" %}">{% translate "Browse my courses" %}</a>
+        {% translate "to view a different course" %}.
       </p>
     {% endfor %}
   </div>
   </div>
-  <h3>Add new work:</h3>
+  <h3>{% translate "Add new work" %}:</h3>
   <ul class="content-types">
     <li>
       <a href="{% url "work_content_create" course_id "text" %}">
-        Text
+        {% translate "Text" %}
       </a>
     </li>
     <li>
       <a href="{% url "work_content_create" course_id "image" %}">
-        Image
+        {% translate "Image" %}
       </a>
     </li>
     <li>
       <a href="{% url "work_content_create" course_id "video" %}">
-        Video
+        {% translate "Video" %}
       </a>
     </li>
     <li>
       <a href="{% url "work_content_create" course_id "file" %}">
-        File
+        {% translate "File" %}
       </a>
     </li>
   </ul>

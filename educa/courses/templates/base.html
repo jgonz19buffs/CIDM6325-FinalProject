@@ -1,4 +1,4 @@
-{% load static %}
+{% load i18n static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,12 +14,12 @@
         {% if request.user.is_authenticated %}
           <li>
             <form action="{% url "logout" %}" method="post">
-              <button type="submit">Sign out</button>
+              <button type="submit">{% translate "Sign out" %}</button>
               {% csrf_token %}
             </form>
           </li>
         {% else %}
-          <li><a href="{% url "login" %}">Sign in</a></li>
+          <li><a href="{% url "login" %}">{% translate "Sign in" %}</a></li>
         {% endif %}
       </ul>
     </div>
